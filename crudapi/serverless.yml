@@ -1,0 +1,59 @@
+
+service: crud-api
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-west-2
+  timeout: 300
+  apiKeys: 
+    - todoAPI
+
+package:
+ include:
+   - features/**
+   - models/**
+
+functions:
+  listTodos:
+    handler: features/read.listTodos
+    events:
+      - http:
+          path: todos
+          method: get
+
+  getTodo:
+    handler: features/read.getTodo
+    events:
+      - http:
+          path: todo/{id}
+          method: get
+          private: true
+
+  createTodo:
+    handler: features/create.createTodo
+    events:
+      - http:
+          path: todo
+          method: post
+          private: true
+        
+  deleteTodo:
+    handler: features/delete.deleteTodo
+    events:
+      - http:
+          path: todo/{id}
+          method: delete
+          private: true
+
+  updateTodo:
+    handler: features/update.updateTodo
+    events:
+      - http:
+          path: todo/{id}
+          method: patch
+          private: true

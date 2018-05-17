@@ -1,0 +1,21 @@
+{
+  "name": "yelp_scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.240.1",
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.86.0",
+    "request-promise": "^4.2.2",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "serverless-offline-scheduler": "^0.3.3"
+  }
+}
